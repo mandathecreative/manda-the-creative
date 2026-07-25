@@ -56,7 +56,7 @@
         ].join("\n")
       );
       // Update this address to your real inbox before going live.
-      const email = "hello@mandatethecreative.com";
+      const email = "hi@mandathecreative.com";
       window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     });
   }
