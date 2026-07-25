@@ -48,14 +48,15 @@
           `Name: ${data.get("name") || ""}`,
           `Email: ${data.get("email") || ""}`,
           `Event date: ${data.get("event-date") || "Not specified"}`,
+          `City / neighborhood: ${data.get("city") || "Not specified"}`,
           `Event type: ${data.get("event-type") || "Not specified"}`,
+          `Guest count: ${data.get("guest-count") || "Not specified"}`,
           `Services: ${services}`,
           "",
           "Details:",
           data.get("details") || "",
         ].join("\n")
       );
-      // Update this address to your real inbox before going live.
       const email = "hi@mandathecreative.com";
       window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     });
