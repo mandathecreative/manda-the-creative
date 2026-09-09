@@ -5,6 +5,7 @@
   --ink-soft: #5a5560;
   --coral: #ff4d6d;
   --coral-deep: #e83657;
+  --ink-deep: #1c1a1f;
   --teal: #00b8a9;
   --teal-deep: #009688;
   --sun: #ffd166;
@@ -198,11 +199,21 @@ a {
 }
 
 .hero {
+  padding: clamp(1rem, 3vw, 2rem) clamp(0.75rem, 3vw, 2.5rem) clamp(2rem, 5vw, 3.5rem);
+}
+
+.hero-panel {
   position: relative;
-  min-height: calc(100svh - var(--header-h));
   display: grid;
-  align-items: end;
-  padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem) clamp(3rem, 8vw, 5.5rem);
+  gap: clamp(2rem, 5vw, 3rem);
+  align-items: center;
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  border: 3px solid var(--ink);
+  border-radius: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--ink-deep);
+  box-shadow: 10px 10px 0 var(--coral);
   overflow: hidden;
 }
 
@@ -212,10 +223,21 @@ a {
   pointer-events: none;
 }
 
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 247, 242, 0.22) 1.5px, transparent 1.6px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse at 25% 40%, #000 10%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 25% 40%, #000 10%, transparent 70%);
+  opacity: 0.7;
+}
+
 .blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(2px);
+  opacity: 0.28;
   animation: float 9s ease-in-out infinite;
 }
 
@@ -225,7 +247,6 @@ a {
   right: -8%;
   top: 8%;
   background: radial-gradient(circle at 30% 30%, #ff8fa3, var(--coral) 55%, transparent 70%);
-  opacity: 0.85;
 }
 
 .blob-b {
@@ -264,40 +285,182 @@ a {
   position: relative;
   z-index: 1;
   max-width: 42rem;
+  color: var(--bg);
+}
+
+.hero-art {
+  position: relative;
+  z-index: 1;
+  justify-self: center;
+  width: min(100%, 30rem);
+}
+
+.hero-art img {
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--bg);
+  border-radius: 1.5rem;
+  box-shadow: 8px 8px 0 var(--teal);
+  transform: rotate(-1.5deg);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 1.25rem;
+  padding: 0.5rem 0.95rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--white);
+  box-shadow: 4px 4px 0 var(--sun);
+  transform: rotate(-2deg);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-badge span {
+  color: var(--coral);
 }
 
 .brand-lockup {
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.2rem, 7.5vw, 4.2rem);
-  line-height: 0.95;
-  letter-spacing: -0.045em;
-  color: var(--ink);
-  max-width: 12ch;
+  font-size: clamp(2.7rem, 10vw, 5.4rem);
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+  color: var(--bg);
+  display: grid;
+  justify-items: start;
+}
+
+.lockup-color {
+  text-shadow: 5px 5px 0 var(--teal);
+}
+
+.lockup-and {
+  margin: 0.1em 0 0.02em 0.12em;
+  font-size: 0.32em;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sun);
+  transform: rotate(-3deg);
+}
+
+.lockup-capture {
+  background: linear-gradient(96deg, var(--coral) 12%, var(--berry) 52%, var(--teal) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: rotate(-1.5deg);
 }
 
 .hero h1 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.55rem, 4.2vw, 2.35rem);
-  line-height: 1.15;
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  line-height: 1.25;
   letter-spacing: -0.03em;
-  max-width: 18ch;
+  max-width: 24ch;
+  color: var(--bg);
+}
+
+.marker {
+  color: var(--ink);
+}
+
+.marker {
+  position: relative;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.marker::before {
+  content: "";
+  position: absolute;
+  inset: 12% -0.35em 8%;
+  z-index: -1;
+  background: linear-gradient(100deg, var(--sun), rgba(255, 143, 163, 0.9));
+  border-radius: 0.6em 0.9em 0.5em 0.8em;
+  transform: rotate(-1.5deg);
 }
 
 .hero-lede {
   margin: 0 0 1.75rem;
   max-width: 34rem;
   font-size: 1.08rem;
-  color: var(--ink-soft);
+  color: rgba(255, 247, 242, 0.82);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.85rem;
+}
+
+.hero-actions .btn {
+  border: 2px solid var(--bg);
+  box-shadow: 5px 5px 0 var(--bg);
+}
+
+.hero-actions .btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--bg);
+}
+
+.hero-actions .btn-ghost {
+  background: transparent;
+  color: var(--bg);
+}
+
+.hero-actions .btn-ghost:hover {
+  background: rgba(255, 247, 242, 0.12);
+}
+
+.hero-chips {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.hero-chips a {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border: 2px solid var(--bg);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--ink);
+  box-shadow: 3px 3px 0 rgba(255, 247, 242, 0.35);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.hero-chips li:nth-child(odd) a {
+  transform: rotate(-2deg);
+}
+
+.hero-chips li:nth-child(even) a {
+  transform: rotate(1.5deg);
+}
+
+.hero-chips li:nth-child(1) a:hover { background: var(--coral); color: var(--bg); }
+.hero-chips li:nth-child(2) a:hover { background: var(--teal); color: var(--bg); }
+.hero-chips li:nth-child(3) a:hover { background: var(--sun); }
+.hero-chips li:nth-child(4) a:hover { background: var(--berry); color: var(--bg); }
+
+.hero-chips a:hover {
+  transform: translate(-1px, -2px) rotate(0deg);
+  box-shadow: 5px 5px 0 rgba(255, 247, 242, 0.5);
 }
 
 .btn {
@@ -1031,8 +1194,8 @@ a {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .hero {
-    align-items: center;
+  .hero-panel {
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
   }
 }
 
@@ -1042,7 +1205,8 @@ a {
   .sparkle,
   [data-animate],
   .btn,
-  .service {
+  .service,
+  .hero-chips a {
     animation: none !important;
     transition: none !important;
   }
