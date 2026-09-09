@@ -1,8 +1,9 @@
-# Manda the Creative
+# Color and Capture
 
 Marketing site for face painting, glitter tattoos, party nails, and hair tinsel
 in **San Jose and surrounding South Bay cities**.
 Photography links out to [VanDammePhotography.com](https://VanDammePhotography.com).
+The artist behind the brand is Manda.
 
 Built as a static site so it can be hosted free on **GitHub Pages**.
 

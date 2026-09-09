@@ -42,7 +42,7 @@
       event.preventDefault();
       const data = new FormData(form);
       const services = data.getAll("services").join(", ") || "Not specified";
-      const subject = encodeURIComponent("Booking request — Manda the Creative");
+      const subject = encodeURIComponent("Booking request — Color and Capture");
       const body = encodeURIComponent(
         [
           `Name: ${data.get("name") || ""}`,
